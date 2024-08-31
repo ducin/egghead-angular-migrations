@@ -1,4 +1,4 @@
-# Modern Dependency Injection in Angular
+# Angular Migrations
 
 👉 COURSE-LINK
 

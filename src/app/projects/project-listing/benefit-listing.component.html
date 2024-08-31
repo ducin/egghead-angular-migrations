@@ -1,10 +1,15 @@
 <h2>Benefits</h2>
 
-<div *ngIf="benefits$ | async as benefits">
+<div *ngIf="benefits$ | async as benefits; else loading">
   count: {{ benefits.length }}
   <ul>
     <li *ngFor="let b of benefits">
-      <itcorpo-benefit-details [benefit]="b"></itcorpo-benefit-details>
+      <itcorpo-benefit-details
+        [benefit]="b"
+      ></itcorpo-benefit-details>
     </li>
   </ul>
 </div>
+<ng-template #loading>
+  <itcorpo-loader />
+</ng-template>
