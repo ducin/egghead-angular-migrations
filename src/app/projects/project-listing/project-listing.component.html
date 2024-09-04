@@ -1,11 +1,15 @@
 <h2>Our projects</h2>
 
-<div *ngIf="projects$ | async as projects">
-  count: {{ projects.length }}
-  <ul>
-    <li *ngFor="let p of projects">
-      <itcorpo-project-details [project]="p"></itcorpo-project-details>
-    </li>
-  </ul>
-</div>
+@if (projects$ | async; as projects) {
+  <div>
+    count: {{ projects.length }}
+    <ul>
+      @for (p of projects; track p) {
+        <li>
+          <itcorpo-project-details [project]="p"></itcorpo-project-details>
+        </li>
+      }
+    </ul>
+  </div>
+}
 

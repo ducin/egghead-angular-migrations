@@ -1,13 +1,25 @@
-<section [ngSwitch]="benefit.service">
-  service: {{ benefit.service }},
-  <ng-container *ngSwitchCase="'cafeteria.io'">coffee n'snacks</ng-container>
-  <ng-container *ngSwitchCase="'lunch-card'">a lunch card to use</ng-container>
-  <ng-container *ngSwitchCase="'healthcare'">your best docs</ng-container>
-  <ng-container *ngSwitchCase="'sport-system'">let's go to the gym</ng-container>
-  <ng-container *ngSwitchDefault>unknown service</ng-container>
+service: {{ benefit.service }},
+<section>
+  @switch (benefit.service) {
+    @case ('cafeteria.io') {
+      coffee n'snacks
+    }
+    @case ('lunch-card') {
+      a lunch card to use
+    }
+    @case ('healthcare') {
+      your best docs
+    }
+    @case ('sport-system') {
+      let's go to the gym
+    }
+    @default {
+      unknown service
+    }
+  }
 </section>
 <section>
-  {{ benefit.country }}, {{ benefit.city }},  
-  fee: {{ benefit.monthlyFee | currency:"EUR" }},
-  since: {{ benefit.subscribedAtDate | date }}
+  {{ benefit.country }}, {{ benefit.city }}, fee:
+  {{ benefit.monthlyFee | currency : "EUR" }}, since:
+  {{ benefit.subscribedAtDate | date }}
 </section>

@@ -1,17 +1,20 @@
 <h2>Our Employees</h2>
 
-<div *ngIf="employees$ | async as employees; else loading">
-  count: {{ employees.length }}
-  <ul>
-    <li *ngFor="let e of employees">
-      {{ e | nameAndTitle }} {{ e | flag }} (<a
-        routerLink="/employees/{{ e.id }}"
-        routerLinkActive="active"
-        >details</a
-      >)
-    </li>
-  </ul>
-</div>
-<ng-template #loading>
+@if(employees$ | async; as employees){
+  <div>
+    count: {{ employees.length }}
+    <ul>
+      @for (e of employees; track e) {
+        <li>
+          {{ e | nameAndTitle }} {{ e | flag }} (<a
+          routerLink="/employees/{{ e.id }}"
+          routerLinkActive="active"
+          >details</a
+          >)
+        </li>
+      }
+    </ul>
+  </div>
+} @else {
   <itcorpo-loader />
-</ng-template>
+}

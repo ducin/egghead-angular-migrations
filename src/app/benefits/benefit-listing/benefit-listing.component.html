@@ -1,10 +1,16 @@
 <h2>Our benefits</h2>
 
-<div *ngIf="benefits$ | async as benefits">
+@if (benefits$ | async; as benefits) {
+<div>
   count: {{ benefits.length }}
   <ul>
-    <li *ngFor="let b of benefits">
-      <itcorpo-benefit-details [benefit]="b"></itcorpo-benefit-details>
+    @for (b of benefits; track b.id) {
+    <li>
+      <itcorpo-benefit-details
+        [benefit]="b"
+      ></itcorpo-benefit-details>
     </li>
+    } @empty { no items found }
   </ul>
 </div>
+}
