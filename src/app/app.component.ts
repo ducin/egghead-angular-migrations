@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
@@ -11,14 +11,12 @@ import { Nationality } from 'src/app/api/dto';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  private geoSvc = inject(GeoService);
+
 
   title = 'IT Corpo Angular App'
 
   geoData$!: Observable<{ [k: string]: string }>
-
-  constructor(
-    private geoSvc: GeoService,
-  ){}
 
   ngOnInit(): void {
     this.geoData$ = this.geoSvc.getGeo()

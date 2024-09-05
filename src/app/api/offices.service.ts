@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { apiURL } from './config';
@@ -8,10 +8,8 @@ import { Office } from 'src/app/api/dto';
   providedIn: 'root'
 })
 export class OfficesService {
+  private http = inject(HttpClient);
 
-  constructor(
-    private http: HttpClient
-  ) { }
 
   getAllOffices(countryName?: string) {
     const query = countryName ? `?country=${countryName}` : ''

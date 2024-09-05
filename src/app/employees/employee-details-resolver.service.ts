@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 import { NEVER, Observable } from 'rxjs';
@@ -10,10 +10,8 @@ import { Employee } from 'src/app/api/dto';
   providedIn: 'root'
 })
 export class EmployeeDetailsResolverService  {
+  private employeeSvc = inject(EmployeesService);
 
-  constructor(
-    private employeeSvc: EmployeesService,
-  ) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Employee | void> {
     const id = route.paramMap.get('id')

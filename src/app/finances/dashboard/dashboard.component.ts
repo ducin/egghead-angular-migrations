@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 
 import { EmployeesService } from 'src/app/api/employees.service';
@@ -17,19 +17,17 @@ import { Expense } from 'src/app/api/dto';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  private officesSvc = inject(OfficesService);
+  private projectsSvc = inject(ProjectsService);
+  private employeesSvc = inject(EmployeesService);
+  private benefitsSvc = inject(BenefitsService);
+  private expensesSvc = inject(ExpensesService);
+  private currencyPipe = inject(CurrencyPipe);
+
   monthlyCost$!: Observable<number>
   yearlyCost$!: Observable<number>
 
   expenses$!: Observable<Expense[]>
-
-  constructor(
-    private officesSvc: OfficesService,
-    private projectsSvc: ProjectsService,
-    private employeesSvc: EmployeesService,
-    private benefitsSvc: BenefitsService,
-    private expensesSvc: ExpensesService,
-    private currencyPipe: CurrencyPipe,
-  ) { }
 
   ngOnInit() {
     this.expenses$ = this.expensesSvc.getExpenses()

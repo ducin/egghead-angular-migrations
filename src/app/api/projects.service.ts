@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { apiURL } from './config';
@@ -8,10 +8,8 @@ import { Project } from 'src/app/api/dto';
   providedIn: 'root'
 })
 export class ProjectsService {
+  private http = inject(HttpClient);
 
-  constructor(
-    private http: HttpClient
-  ) { }
 
   deleteProject(id: Project['id']) {
     return this.http.delete(`${apiURL}/projects/${id}`)

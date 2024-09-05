@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, inject } from "@angular/core";
 
 import { Observable } from "rxjs";
 
@@ -12,9 +12,9 @@ import { EmployeesService } from "src/app/api/employees.service";
   styleUrls: ["./employee-listing.component.css"],
 })
 export class EmployeeListingComponent implements OnInit {
-  employees$!: Observable<Employee[]>;
+  private employeeSvc = inject(EmployeesService);
 
-  constructor(private employeeSvc: EmployeesService) {}
+  employees$!: Observable<Employee[]>;
 
   ngOnInit() {
     this.employees$ = this.employeeSvc.getAllEmployees();

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { apiURL } from './config';
@@ -15,10 +15,8 @@ export type EmployeeCriteria = {
   providedIn: 'root'
 })
 export class EmployeesService {
+  private http = inject(HttpClient);
 
-  constructor(
-    private http: HttpClient
-  ) { }
 
   deleteEmployee(id: Employee['id']) {
     return this.http.delete(`${apiURL}/employees/${id}`)

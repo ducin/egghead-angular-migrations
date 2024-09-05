@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Employee } from 'src/app/api/dto';
 import { ActivatedRoute } from '@angular/router';
 
@@ -7,11 +7,9 @@ import { ActivatedRoute } from '@angular/router';
   template: `<itcorpo-employee-details [employee]="employee"></itcorpo-employee-details>`
 })
 export class EmployeeDetailsPageComponent {
-  employee!: Employee
+  private route = inject(ActivatedRoute);
 
-  constructor(
-    private route: ActivatedRoute
-  ){}
+  employee!: Employee
 
   ngOnInit(): void {
     this.employee = this.route.snapshot.data.employee

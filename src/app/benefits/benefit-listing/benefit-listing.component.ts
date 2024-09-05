@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, inject } from "@angular/core";
 import { BenefitsService } from "src/app/api/benefits.service";
 
 import { Observable } from "rxjs";
@@ -15,9 +15,9 @@ import { AsyncPipe } from "@angular/common";
   styleUrls: ["./benefit-listing.component.css"],
 })
 export class BenefitListingComponent implements OnInit {
-  benefits$!: Observable<Benefit[]>;
+  private benefitSvc = inject(BenefitsService);
 
-  constructor(private benefitSvc: BenefitsService) {}
+  benefits$!: Observable<Benefit[]>;
 
   ngOnInit() {
     this.benefits$ = this.benefitSvc.getAllBenefits();

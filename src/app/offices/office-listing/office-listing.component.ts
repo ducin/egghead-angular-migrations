@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { OfficesService } from 'src/app/api/offices.service';
 
 import { Observable } from 'rxjs';
@@ -11,11 +11,9 @@ import { Office } from 'src/app/api/dto';
   styleUrls: ['./office-listing.component.css']
 })
 export class OfficeListingComponent implements OnInit {
-  offices$!: Observable<Office[]>
+  private officeSvc = inject(OfficesService);
 
-  constructor(
-    private officeSvc: OfficesService,
-  ) { }
+  offices$!: Observable<Office[]>
 
   ngOnInit() {
     this.offices$ = this.officeSvc.getAllOffices()

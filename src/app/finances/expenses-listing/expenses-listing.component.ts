@@ -1,4 +1,4 @@
-import { Component, Host, Inject, InjectionToken, Input, Optional, Self, SkipSelf } from '@angular/core';
+import { Component, InjectionToken, Input, inject } from '@angular/core';
 import { BenefitsService } from 'src/app/api/benefits.service';
 
 import { Expense } from 'src/app/api/dto';
@@ -20,17 +20,14 @@ const DI_TOKEN = new InjectionToken<string>('DI_TOKEN');
   }]
 })
 export class ExpensesListingComponent {
+  expensesSvc = inject(ExpensesService);
+  private benefitsSvc = inject(BenefitsService, { optional: true });
+  private employeesSvc = inject(EmployeesService, { self: true });
+  private officesSvc = inject(OfficesService, { skipSelf: true });
+  private projectsSvc = inject(ProjectsService, { host: true });
+  private token = inject(DI_TOKEN);
+  settingsService = inject<SettingsService>(SETTINGS_SERVICE_TOKEN);
+
   @Input()
   expenses!: Expense[]
-
-  constructor(
-    public expensesSvc: ExpensesService,
-    @Optional() private benefitsSvc: BenefitsService,
-    @Self() private employeesSvc: EmployeesService,
-    @SkipSelf() private officesSvc: OfficesService,
-    @Host() private projectsSvc: ProjectsService,
-    @Inject(DI_TOKEN) private token: string,
-    @Inject(SETTINGS_SERVICE_TOKEN) public settingsService: SettingsService,
-    // value: string
-  ) {}
 }
