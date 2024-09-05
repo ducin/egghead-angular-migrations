@@ -8,18 +8,16 @@ import { AppComponent } from './app.component';
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent,
-      ],
-      imports: [
+    imports: [
         // NullInjectorError: R3InjectorError(DynamicTestModule)[GeoService -> HttpClient -> HttpClient]: NullInjectorError: No provider for HttpClient!
         HttpClientTestingModule,
         // Error: NG0304: 'router-outlet' is not a known element (used in the 'AppComponent' component template):        
         RouterTestingModule,
         // Error: NG0304: 'itcorpo-fadebox' [...] is not a known element (used in the 'AppComponent' component template):
-        SharedModule
-      ]
-    }).compileComponents();
+        SharedModule,
+        AppComponent
+    ]
+}).compileComponents();
   });
 
   it('should create the app', () => {

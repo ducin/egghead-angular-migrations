@@ -4,11 +4,15 @@ import { ProjectsService } from 'src/app/api/projects.service';
 import { Observable } from 'rxjs';
 
 import { Project } from 'src/app/api/dto';
+import { ProjectDetailsComponent } from '../project-details/project-details.component';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'itcorpo-project-listing',
-  templateUrl: './project-listing.component.html',
-  styleUrls: ['./project-listing.component.css']
+    selector: 'itcorpo-project-listing',
+    templateUrl: './project-listing.component.html',
+    styleUrls: ['./project-listing.component.css'],
+    standalone: true,
+    imports: [ProjectDetailsComponent, AsyncPipe]
 })
 export class ProjectListingComponent implements OnInit {
   private projectSvc = inject(ProjectsService);

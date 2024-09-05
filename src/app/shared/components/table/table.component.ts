@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'itcorpo-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+    selector: 'itcorpo-table',
+    templateUrl: './table.component.html',
+    styleUrls: ['./table.component.css'],
+    standalone: true
 })
 export class TableComponent {
   @Input()

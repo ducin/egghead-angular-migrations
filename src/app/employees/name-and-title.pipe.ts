@@ -3,7 +3,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Employee } from 'src/app/api/dto';
 
 @Pipe({
-  name: 'nameAndTitle'
+    name: 'nameAndTitle',
+    standalone: true
 })
 export class NameAndTitlePipe implements PipeTransform {
 

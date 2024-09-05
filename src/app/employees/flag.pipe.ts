@@ -4,7 +4,8 @@ import { Employee } from 'src/app/api/dto';
 import { flag } from '../shared/contexts/nationality';
 
 @Pipe({
-  name: 'flag'
+    name: 'flag',
+    standalone: true
 })
 export class FlagPipe implements PipeTransform {
 

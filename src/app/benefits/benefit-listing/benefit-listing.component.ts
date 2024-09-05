@@ -4,12 +4,13 @@ import { BenefitsService } from "src/app/api/benefits.service";
 import { Observable } from "rxjs";
 
 import { Benefit } from "src/app/api/dto";
-import { BenefitsModule } from "../benefits.module";
+
 import { AsyncPipe } from "@angular/common";
+import { BenefitDetailsComponent } from "../benefit-details/benefit-details.component";
 
 @Component({
   standalone: true,
-  imports: [BenefitsModule, AsyncPipe],
+  imports: [AsyncPipe, BenefitDetailsComponent],
   selector: "itcorpo-benefit-listing",
   templateUrl: "./benefit-listing.component.html",
   styleUrls: ["./benefit-listing.component.css"],

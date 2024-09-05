@@ -7,17 +7,20 @@ import { ExpensesService } from 'src/app/api/expenses.service';
 import { OfficesService } from 'src/app/api/offices.service';
 import { ProjectsService } from 'src/app/api/projects.service';
 import { SETTINGS_SERVICE_TOKEN, SettingsService } from 'src/app/shared/settings.service';
+import { CurrencyPipe, DatePipe } from '@angular/common';
 
 const DI_TOKEN = new InjectionToken<string>('DI_TOKEN');
 
 @Component({
-  selector: 'itcorpo-expenses-listing',
-  templateUrl: './expenses-listing.component.html',
-  styleUrls: ['./expenses-listing.component.css'],
-  providers: [{
-    provide: DI_TOKEN,
-    useValue: 'some value'
-  }]
+    selector: 'itcorpo-expenses-listing',
+    templateUrl: './expenses-listing.component.html',
+    styleUrls: ['./expenses-listing.component.css'],
+    providers: [{
+            provide: DI_TOKEN,
+            useValue: 'some value'
+        }],
+    standalone: true,
+    imports: [CurrencyPipe, DatePipe]
 })
 export class ExpensesListingComponent {
   expensesSvc = inject(ExpensesService);

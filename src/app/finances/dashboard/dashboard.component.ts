@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CurrencyPipe } from '@angular/common';
+import { CurrencyPipe, AsyncPipe } from '@angular/common';
 
 import { EmployeesService } from 'src/app/api/employees.service';
 import { BenefitsService } from 'src/app/api/benefits.service';
@@ -10,11 +10,15 @@ import { ExpensesService } from 'src/app/api/expenses.service';
 import { Observable, of } from 'rxjs';
 
 import { Expense } from 'src/app/api/dto';
+import { TableComponent } from '../../shared/components/table/table.component';
+import { ExpensesListingComponent } from '../expenses-listing/expenses-listing.component';
 
 @Component({
-  selector: 'itcorpo-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+    selector: 'itcorpo-dashboard',
+    templateUrl: './dashboard.component.html',
+    styleUrls: ['./dashboard.component.css'],
+    standalone: true,
+    imports: [TableComponent, ExpensesListingComponent, AsyncPipe]
 })
 export class DashboardComponent implements OnInit {
   private officesSvc = inject(OfficesService);

@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { NgClass } from '@angular/common';
 
 @Component({
-  selector: 'itcorpo-fadebox',
-  template: `<div class="fade-box" [ngClass]="{'fade-in': !currentlyFadeOut, 'fade-out': currentlyFadeOut}">
+    selector: 'itcorpo-fadebox',
+    template: `<div class="fade-box" [ngClass]="{'fade-in': !currentlyFadeOut, 'fade-out': currentlyFadeOut}">
   <ng-content></ng-content>
 </div>
 `,
-  styleUrls: ['./fadebox.component.css']
+    styleUrls: ['./fadebox.component.css'],
+    standalone: true,
+    imports: [NgClass]
 })
 export class FadeboxComponent implements OnInit {
 

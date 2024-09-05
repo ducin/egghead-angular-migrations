@@ -5,9 +5,10 @@ export type DropdownOptions = {
 }
 
 @Component({
-  selector: 'itcorpo-dropdown',
-  templateUrl: './dropdown.component.html',
-  styles: []
+    selector: 'itcorpo-dropdown',
+    templateUrl: './dropdown.component.html',
+    styles: [],
+    standalone: true
 })
 export class DropdownComponent {
   @Input()

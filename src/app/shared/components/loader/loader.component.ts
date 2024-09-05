@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 // https://loading.io/css/
 
 @Component({
-  selector: 'itcorpo-loader',
-  template: `<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>`,
-  styles: [`
+    selector: 'itcorpo-loader',
+    template: `<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>`,
+    styles: [`
 .lds-ellipsis {
   display: inline-block;
   position: relative;
@@ -60,7 +60,8 @@ import { Component, OnInit } from '@angular/core';
   100% {
     transform: translate(19px, 0);
   }
-}`]
+}`],
+    standalone: true
 })
 export class LoaderComponent implements OnInit {
 
