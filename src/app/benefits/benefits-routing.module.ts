@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { BenefitListingComponent } from './benefit-listing/benefit-listing.component';
+
 
 const routes: Routes = [
   {
     path: '',
-    component: BenefitListingComponent
+    loadComponent: () => import('./benefit-listing/benefit-listing.component').then(m => m.BenefitListingComponent)
   },
 ];
 

@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { EmployeeListingComponent } from './employee-listing/employee-listing.component';
-import { EmployeeDetailsPageComponent } from './employee-details/employee-details-page.component';
+
+
 import { EmployeeDetailsResolverService } from './employee-details-resolver.service';
 
 const routes: Routes = [
   {
     path: '',
-    component: EmployeeListingComponent
+    loadComponent: () => import('./employee-listing/employee-listing.component').then(m => m.EmployeeListingComponent)
   },
   {
     path: ':id',
-    component: EmployeeDetailsPageComponent,
+    loadComponent: () => import('./employee-details/employee-details-page.component').then(m => m.EmployeeDetailsPageComponent),
     resolve: {
       employee: EmployeeDetailsResolverService
     }

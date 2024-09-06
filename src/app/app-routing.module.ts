@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
+
 import { OfficesRoutingModule } from './offices/offices-routing.module';
 import { ProjectsRoutingModule } from './projects/projects-routing.module';
 import { EmployeesRoutingModule } from './employees/employees-routing.module';
@@ -11,7 +11,7 @@ import { FinancesRoutingModule } from './finances/finances-routing.module';
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    loadComponent: () => import('./home/home.component').then(m => m.HomeComponent),
   },
   {
     path: 'offices',
