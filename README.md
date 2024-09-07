@@ -2,7 +2,9 @@
 
 👉 COURSE-LINK
 
-use [git branches](COURSE-LINK-TO-BRANCHES) to navigate to certain lessons
+use [git branches](https://github.com/ducin/egghead-angular-migrations/branches) to navigate to certain lessons
+
+📚 See my [other Egghead Courses](https://egghead.io/q/resources-by-tomasz-ducin).
 
 ## API
 
