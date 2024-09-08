@@ -1,22 +1,22 @@
-<h2>{{ employee.firstName }} {{ employee.lastName }} (age: {{ employee.personalInfo.age }})</h2>
+<h2>{{ employee().firstName }} {{ employee().lastName }} (age: {{ employee().personalInfo.age }})</h2>
 
-<itcorpo-employee-image [employee]="employee"></itcorpo-employee-image>
+<itcorpo-employee-image [employee]="employee()"></itcorpo-employee-image>
 
 <div>
-  {{ employee.title }},
-  earning {{ employee.salary | currency:"EUR" }},
-  hired: {{ employee.hiredAt | date }}
+  {{ employee().title }},
+  earning {{ employee().salary | currency:"EUR" }},
+  hired: {{ employee().hiredAt | date }}
 
   <div>
-    office: {{ employee.office.join(', ') }}
+    office: {{ employee().office.join(', ') }}
   </div>
 
   <h3>Skills</h3>
   <ul>
-    @for (skill of employee.skills; track skill) {
+    @for (skill of employee().skills; track skill) {
       <li>{{ skill }}</li>
     }
   </ul>
 
-  <a href="mailto:{{ employee.personalInfo.email }}"></a>
+  <a href="mailto:{{ employee().personalInfo.email }}"></a>
 </div>

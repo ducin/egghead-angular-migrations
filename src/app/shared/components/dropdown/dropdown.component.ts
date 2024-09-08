@@ -1,32 +1,35 @@
-import { Component, EventEmitter, Output, Input, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  SimpleChanges,
+  input, output } from "@angular/core";
 
 export type DropdownOptions = {
   [key: string]: string;
-}
+};
 
 @Component({
-    selector: 'itcorpo-dropdown',
-    templateUrl: './dropdown.component.html',
-    styles: [],
-    standalone: true
+  selector: "itcorpo-dropdown",
+  templateUrl: "./dropdown.component.html",
+  styles: [],
+  standalone: true,
 })
 export class DropdownComponent {
-  @Input()
-  options!: DropdownOptions
+  options = input.required<DropdownOptions>();
+  // options = input.required<DropdownOptions>();
 
-  entries!: { key: string, value: string }[]
+  entries!: { key: string; value: string }[];
 
-  @Output()
-  private valueChange = new EventEmitter<string>()
+  protected valueChange = output<string>();
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.options.currentValue) {
-      this.entries = Object.entries(changes.options.currentValue as DropdownOptions)
-        .map(([key, value]) => ({ key, value }))
+      this.entries = Object.entries(
+        changes.options.currentValue as DropdownOptions
+      ).map(([key, value]) => ({ key, value }));
     }
   }
 
-  onChange(value: Event){
-    this.valueChange.emit(String(value))
+  onChange(value: Event) {
+    this.valueChange.emit(String(value));
   }
 }

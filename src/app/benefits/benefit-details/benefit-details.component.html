@@ -1,6 +1,6 @@
-service: {{ benefit.service }},
+service: {{ benefit().service }},
 <section>
-  @switch (benefit.service) {
+  @switch (benefit().service) {
     @case ('cafeteria.io') {
       coffee n'snacks
     }
@@ -19,7 +19,7 @@ service: {{ benefit.service }},
   }
 </section>
 <section>
-  {{ benefit.country }}, {{ benefit.city }}, fee:
-  {{ benefit.monthlyFee | currency : "EUR" }}, since:
-  {{ benefit.subscribedAtDate | date }}
+  {{ benefit().country }}, {{ benefit().city }}, fee:
+  {{ benefit().monthlyFee | currency : "EUR" }}, since:
+  {{ benefit().subscribedAtDate | date }}
 </section>

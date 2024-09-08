@@ -1,15 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from "@angular/core";
 
 @Component({
-    selector: 'itcorpo-table',
-    templateUrl: './table.component.html',
-    styleUrls: ['./table.component.css'],
-    standalone: true
+  selector: "itcorpo-table",
+  templateUrl: "./table.component.html",
+  styleUrls: ["./table.component.css"],
+  standalone: true,
 })
 export class TableComponent {
-  @Input()
-  headers!: string[]
+  headers = input.required<string[]>();
 
-  @Input()
-  rows!: string[][]
+  rows = input.required<string[][]>();
 }

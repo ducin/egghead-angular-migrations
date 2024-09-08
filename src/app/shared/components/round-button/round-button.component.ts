@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, output } from '@angular/core';
 
 @Component({
     selector: 'itcorpo-round-button',
@@ -20,8 +20,7 @@ button.round {
     standalone: true
 })
 export class RoundButtonComponent {
-  @Output()
-  clicked = new EventEmitter<Event>()
+  clicked = output<Event>();
 
   onClickHandle(event: Event) {
     this.clicked.emit(event)

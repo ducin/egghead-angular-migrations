@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, input } from "@angular/core";
 import { Benefit } from "src/app/api/dto";
 import { CurrencyPipe, DatePipe } from "@angular/common";
 
@@ -10,6 +10,5 @@ import { CurrencyPipe, DatePipe } from "@angular/common";
   imports: [CurrencyPipe, DatePipe],
 })
 export class BenefitDetailsComponent {
-  @Input()
-  benefit!: Benefit;
+  benefit = input.required<Benefit>();
 }

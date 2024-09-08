@@ -1,4 +1,4 @@
-@for (expense of expenses; track expense; let i = $index) {
+@for (expense of expenses(); track expense; let i = $index) {
   <div>
     <div>
       {{ i + 1 }}. {{ expense.amount | currency:"EUR" }}, scheduled at: {{ expense.scheduledAt | date }}
