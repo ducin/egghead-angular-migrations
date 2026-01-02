@@ -1,6 +1,6 @@
 # Angular Migrations
 
-👉 COURSE-LINK
+👉 https://egghead.io/courses/angular-migrations-in-practice-54fd1fe2
 
 use [git branches](https://github.com/ducin/egghead-angular-migrations/branches) to navigate to certain lessons
 
